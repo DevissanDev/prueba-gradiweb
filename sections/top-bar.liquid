@@ -1,12 +1,30 @@
 <link rel="stylesheet" href="{{ 'sections/styles/top-bar.css' | asset_url }}">
 <section class="topbar">
   <div class="marquee-container">
-    <h2>
-      {%- for i in (1..20) -%}
-        {{ settings['top-bar'].settings.marquee_text }}
-        {%- unless forloop.last -%}&nbsp;&nbsp;&nbsp;&nbsp;{%- endunless -%}
+    <p>
+      {%- for i in (1..40) -%}
+        {%- if forloop.first == false -%}
+          <span style="margin:0 8px 0 0;"></span>
+        {%- endif -%}
+        {{ settings['top-bar'].settings.marquee_text | upcase }}
+        <img
+          class="iconstart"
+          src="{{ 'accessories/start.svg' | asset_url }}"
+          alt="icon"
+          width="17"
+          height="17">
       {%- endfor -%}
-    </h2>
+      {%- for i in (1..40) -%}
+        <span style="margin:0 8px 0 0;"></span>
+        {{ settings['top-bar'].settings.marquee_text | upcase }}
+        <img
+          class="iconstart"
+          src="{{ 'accessories/start.svg' | asset_url }}"
+          alt="icon"
+          width="17"
+          height="17">
+      {%- endfor -%}
+    </p>
   </div>
   <div class="gradient"></div>
 </section>

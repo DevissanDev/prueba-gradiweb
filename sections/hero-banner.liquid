@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="{{ 'sections/styles/hero-banner.css' | asset_url }}">
+<section class="hero-banner">
+  <img
+    src="{{ 'img/' | append: settings['hero-banner'].settings.background_image | asset_url }}"
+    alt="Hero Banner"
+    width="1200"
+    height="600">
+  <div class="hero-container-button">
+    <button class="hero-button">
+      <a href="{{ settings['hero-banner'].settings.button_link }}" class="hero-link">
+        <p>{{ settings['hero-banner'].settings.button_text | upcase }}</p>
+      </a>
+    </button>
+  </div>
+</section>

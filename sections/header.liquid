@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="{{ 'sections/styles/header.css' | asset_url }}">
+<section class="header">
+  <div class="header-menu">
+    <div>
+      <img
+        src="{{ 'accessories/menu.svg' | asset_url }}"
+        alt="Menú"
+        width="36"
+        height="15">
+    </div>
+    <div class="header-menumini-items">
+      <div class="logo-mini">
+        <img src="{{ 'logos/shufflemini.svg' | asset_url }}" alt="shuffle mini logo">
+      </div>
+      <div class="separator">
+        <p>|</p>
+      </div>
+      <div class="name-logo">
+        <p>STORE</p>
+      </div>
+    </div>
+  </div>
+  <div class="header__logo">
+    <img
+      src="{{ 'logos/shuffle.svg' | asset_url }}"
+      alt="Logo de la marca"
+      class="header-logo-img"
+      width="120"
+      height="35">
+  </div>
+
+  <div class="header-payment-methods">
+    <div class="payment-icons">
+      <div class="balckground-icons">
+        <p>We Accept</p>
+        <span class="payment-icon">
+          <img src="{{ 'logos/bitcoin.svg' | asset_url }}" alt="">
+        </span>
+        <span class="payment-icon">
+          <img src="{{ 'logos/ethereum.svg' | asset_url }}" alt="">
+        </span>
+        <span class="payment-icon">
+          <img src="{{ 'logos/Litecoin.svg' | asset_url }}" alt="">
+        </span>
+        <span class="payment-icon">
+          <img src="{{ 'logos/dcoin.svg' | asset_url }}" alt="">
+        </span>
+        <span class="payment-icon">
+          <img src="{{ 'logos/usdcoin.svg' | asset_url }}" alt="">
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-links">
+    <a href="/cuenta" class="link-all-products">All Products</a>
+    <a href="/carrito" class="link-collections">Collections</a>
+    <div class="container-shopping-cart">
+      <button>
+        <img src="{{ 'accessories/cart.svg' | asset_url }}" alt="Shopping Cart">
+      </button>
+    </div>
+  </div>
+</section>

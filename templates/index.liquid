@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/templates/styles/index.css">
     <title>Shopify Simulator | Gradiweb</title>
   </head>
   <body>
-    {% include 'top-bar' with top_bar_settings %}
+    <nav>
+      <div>
+        {% include 'top-bar' %}
+      </div>
+      <div class="header-container">
+        {% include 'header' %}
+      </div>
+      <div class="hero-banner-container">{% include 'hero-banner' %}</div>
+    </nav>
     <script src="{{ 'main.js' | asset_url }}" defer></script>
   </body>
 </html>
