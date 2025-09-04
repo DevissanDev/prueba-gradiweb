@@ -1,5 +1,15 @@
 [
   {
+    "name": "Top Bar",
+    "settings": [
+      {
+        "type": "text",
+        "id": "marquee_text",
+        "label": "Marquee Text"
+      }
+    ]
+  },
+  {
     "name": "Featured Products",
     "settings": [
       {

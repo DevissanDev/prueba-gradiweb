@@ -1,0 +1,71 @@
+.topbar {
+  border: 1px solid red;
+  background-color: rgb(118, 44, 251);
+  color: white;
+  height: 1.6rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.topbar div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.topbar .marquee-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.topbar .gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgb(118, 44, 251) 0%,
+    transparent 2%,
+    transparent 98%,
+    rgb(118, 44, 251) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+.topbar h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: normal;
+  white-space: nowrap;
+  animation: seamless-scroll 40s linear infinite;
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+}
+
+.topbar:hover h2 {
+  animation-play-state: paused;
+}
+
+@keyframes seamless-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

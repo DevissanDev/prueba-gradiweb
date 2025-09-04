@@ -1,10 +1,16 @@
 {
   "sections": {
-    "featured-products": {
-      "type": "featured-products",
+    "featured-product": {
+      "type": "featured-product",
       "settings": {
         "heading": "Our Featured Products",
         "background_color": "#ffffff"
+      }
+    },
+    "top-bar": {
+      "type": "top-bar",
+      "settings": {
+        "marquee_text": "Free Shipping on Orders Over $50"
       }
     },
     "hero-banner": {
@@ -16,6 +22,7 @@
         "background_image": "hero_banner_img.avif"
       }
     },
+
     "footer": {
       "type": "footer",
       "settings": {
