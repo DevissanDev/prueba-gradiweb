@@ -1,0 +1,61 @@
+{%- comment -%} 
+                            Top Bar Component - Snippet Version
+                             
+                            Props disponibles: 
+                            - height: altura del top bar (default: 32px) 
+                            - marquee_text: texto del marquee (default: usa settings) 
+                            - background_color: color de fondo (default: usa CSS variable) 
+                            - text_color: color del texto (default: white) 
+                            - gradient_color: color del gradiente (default: rgb(118, 44, 251))
+                            - icon_size: tamaño del icono (default: 17)
+                            - font_family: familia tipográfica (default: var(--font-aeonik))
+                            - font_size: tamaño de fuente (default: 12px)
+                            - font_weight: peso de fuente (default: 700)
+                            - animation_speed: velocidad de animación en segundos (default: 600s)
+                             
+                            Uso:
+                            {% include 'top-bar-reusable', height: '48px', marquee_text: 'Mi texto', font_family: 'var(--font-countach)', gradient_color: 'rgb(255, 0, 0)', animation_speed: '300s' %} 
+{%- endcomment -%}
+
+{%- assign topbar_height = height | default: '32px' -%}
+{%- assign topbar_text = marquee_text | default: settings['top-bar'].settings.marquee_text -%}
+{%- assign topbar_bg_color = background_color | default: 'var(--purpure-color)' -%}
+{%- assign topbar_text_color = text_color | default: 'white' -%}
+{%- assign topbar_gradient_color = gradient_color | default: 'rgb(118, 44, 251)' -%}
+{%- assign topbar_icon_size_raw = icon_size | default: '17px' -%}
+{%- assign topbar_icon_size = topbar_icon_size_raw | replace: 'px', '' -%}
+{%- assign topbar_font_family = font_family | default: 'var(--font-aeonik)' -%}
+{%- assign topbar_font_size = font_size | default: '12px' -%}
+{%- assign topbar_font_weight = font_weight | default: '700' -%}
+{%- assign topbar_animation_speed = animation_speed | default: '600s' -%}
+
+<link rel="stylesheet" href="{{ 'snippets/styles/top-bar.css' | asset_url }}">
+<section class="topbar" style="height: {{ topbar_height }}; background-color: {{ topbar_bg_color }}; color: {{ topbar_text_color }};">
+  <div class="marquee-container">
+    <p style="font-family: {{ topbar_font_family }}; font-size: {{ topbar_font_size }}; font-weight: {{ topbar_font_weight }}; animation-duration: {{ topbar_animation_speed }};">
+      {%- for i in (1..40) -%}
+        {%- if forloop.first == false -%}
+          <span style="margin:0 8px 0 0;"></span>
+        {%- endif -%}
+        {{ topbar_text | upcase }}
+        <img
+          class="iconstart"
+          src="{{ 'accessories/start.svg' | asset_url }}"
+          alt="icon"
+          width="{{ topbar_icon_size }}"
+          height="{{ topbar_icon_size }}">
+      {%- endfor -%}
+      {%- for i in (1..40) -%}
+        <span style="margin:0 8px 0 0;"></span>
+        {{ topbar_text | upcase }}
+        <img
+          class="iconstart"
+          src="{{ 'accessories/start.svg' | asset_url }}"
+          alt="icon"
+          width="{{ topbar_icon_size }}"
+          height="{{ topbar_icon_size }}">
+      {%- endfor -%}
+    </p>
+  </div>
+  <div class="gradient" style="background: linear-gradient(to right, {{ topbar_gradient_color }} 0%, transparent 4%, transparent 96%, {{ topbar_gradient_color }} 100%);"></div>
+</section>

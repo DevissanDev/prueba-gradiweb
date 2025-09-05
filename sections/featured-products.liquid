@@ -1,8 +1,127 @@
-<section class="featured-products">
-  <h2>{{ settings['featured-products'].settings.heading }}</h2>
-  <div class="product-list">
-    {% for product in products %}
-      {% render 'product-card', product: product %}
-    {% endfor %}
+<link rel="stylesheet" href="{{ 'sections/styles/featured-products.css' | asset_url }}">
+<section aria-label="Catálogo de productos" class="product-grid">
+  {% assign featured_products = collections['featured-products'].products %}
+  {% assign visible_products = featured_products | slice: 0, 4 %}
+  {% assign hidden_products = featured_products | slice: 4, featured_products.size %}
+
+  <!-- Productos visibles inicialmente -->
+  {% for product in visible_products %}
+    <div class="product-item visible">
+      {% render 'product-card'
+        , product: product %}
+    </div>
+  {% endfor %}
+
+  <!-- Productos ocultos inicialmente -->
+  {% for product in hidden_products %}
+    <div class="product-item hidden">
+      {% render 'product-card'
+        , product: product %}
+    </div>
+  {% endfor %}
+
+  <!-- Card "Ver todos los productos" - solo aparece con "Ver más" -->
+  <div class="product-item hidden view-all-item">
+    {% render 'view-all-card' %}
   </div>
+
+  {% if hidden_products.size > 0 %}
+    <div class="show-more-container">
+      <button id="showMoreBtn" class="show-more-btn">
+        <span class="show-text">SEE MORE</span>
+        <span class="hide-text" style="display: none;">VIEW LEES</span>
+      </button>
+    </div>
+  {% endif %}
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  
+  const productGrid = document.querySelector('.product-grid');
+  const showMoreBtn = document.getElementById('showMoreBtn');
+  const hiddenProducts = document.querySelectorAll('.product-item.hidden');
+  const viewAllItem = document.querySelector('.view-all-item');
+  const showText = showMoreBtn ? showMoreBtn.querySelector('.show-text') : null;
+  const hideText = showMoreBtn ? showMoreBtn.querySelector('.hide-text') : null;
+  let hasAnimated = false;
+  
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px' 
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !hasAnimated) {
+        hasAnimated = true;
+        productGrid.classList.add('animate-in');
+        const visibleProducts = document.querySelectorAll('.product-item.visible');
+        setTimeout(() => {
+          visibleProducts.forEach((product, index) => {
+            setTimeout(() => {
+              product.classList.add('animate-product');
+            }, index * 100); 
+          });
+        }, 400); 
+        observer.unobserve(productGrid);
+      }
+    });
+  }, observerOptions);
+  
+  
+  if (productGrid) {
+    observer.observe(productGrid);
+  }  
+  
+  // Funcionalidad para el botón "Ver más"
+  if (showMoreBtn) {
+    showMoreBtn.addEventListener('click', function() {
+      const isExpanded = showMoreBtn.classList.contains('expanded');
+  
+      if (!isExpanded) {
+        hiddenProducts.forEach((product, index) => {
+          product.classList.remove('hidden');
+          product.classList.add('visible', 'show-more-animation');
+          product.offsetHeight;
+  
+          setTimeout(() => {
+            product.classList.add('animate-product');
+          }, index * 120 + 150); 
+        });
+      
+        showText.style.display = 'none';
+        hideText.style.display = 'inline';
+        showMoreBtn.classList.add('expanded');
+        
+      } else {
+        hiddenProducts.forEach((product, index) => {
+          product.classList.remove('animate-product');
+          product.classList.remove('visible', 'show-more-animation');
+          product.classList.add('hidden');
+        });
+        
+        showText.style.display = 'inline';
+        hideText.style.display = 'none';
+        showMoreBtn.classList.remove('expanded');
+  
+        setTimeout(() => {
+          document.querySelector('.product-grid').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }, 400);
+      }
+    });
+  }
+  
+  const viewAllCard = document.querySelector('.view-all-card');
+  if (viewAllCard) {
+    viewAllCard.addEventListener('click', function() {
+      console.log('Redirigiendo al catálogo completo...');
+      alert('Funcionalidad para ver el catálogo completo - implementar redirección');
+    });
+    viewAllCard.style.cursor = 'pointer';
+  }
+  });
+</script>

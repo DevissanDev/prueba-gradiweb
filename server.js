@@ -15,9 +15,13 @@ const engine = new Liquid({
 });
 
 // Agregar filtro asset_url personalizado
-engine.registerFilter('asset_url', (str) => {
+engine.registerFilter("asset_url", (str) => {
   // Si la ruta comienza con 'sections/', servirla desde la carpeta sections
-  if (str.startsWith('sections/')) {
+  if (str.startsWith("sections/")) {
+    return `/${str}`;
+  }
+  // Si la ruta comienza con 'snippets/', servirla desde la carpeta snippets
+  if (str.startsWith("snippets/")) {
     return `/${str}`;
   }
   // Si no, servirla desde assets
@@ -33,6 +37,7 @@ app.use("/assets", express.static("assets"));
 app.use("/assets", express.static("templates/styles")); // Para servir CSS desde templates/styles
 app.use("/sections", express.static("sections"));
 app.use("/templates", express.static("templates"));
+app.use("/snippets", express.static("snippets")); // Para servir archivos desde snippets
 
 const products = require("./data/products.json");
 const collections = require("./data/collections.json");
@@ -41,9 +46,31 @@ const settings = JSON.parse(
 );
 
 app.get("/", (req, res) => {
+  // Crear estructura de colecciones que incluya los productos completos
+  const processedCollections = {};
+
+  // Crear una colección featured-products con todos los productos ordenados por importancia
+  const sortedProducts = products.sort((a, b) => a.importance - b.importance);
+  processedCollections["featured-products"] = {
+    products: sortedProducts,
+  };
+
+  // Procesar otras colecciones existentes
+  collections.forEach((collection) => {
+    const collectionProducts = collection.products
+      .map((productId) => products.find((product) => product.id === productId))
+      .filter((product) => product !== undefined);
+
+    processedCollections[collection.title.toLowerCase().replace(/\s+/g, "-")] =
+      {
+        ...collection,
+        products: collectionProducts,
+      };
+  });
+
   res.render("index", {
     products,
-    collections,
+    collections: processedCollections,
     settings: settings.sections,
   });
 });

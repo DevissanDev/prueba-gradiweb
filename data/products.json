@@ -5,7 +5,8 @@
     "price": 49.99,
     "tags": ["clothing", "sweater"],
     "image": "shuffle_crewneck_black.avif",
-    "description": "A stylish black crewneck sweater."
+    "description": "A stylish black crewneck sweater.",
+    "importance": 10
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "price": 59.99,
     "tags": ["clothing", "hoodie"],
     "image": "shuffle_crewneck_grey.avif",
-    "description": "A comfortable purple hoodie for everyday wear."
+    "description": "A comfortable purple hoodie for everyday wear.",
+    "importance": 2
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "price": 29.99,
     "tags": ["accessories", "daily"],
     "image": "shuffle_essentials.webp",
-    "description": "Your daily essential accessory set."
+    "description": "Your daily essential accessory set.",
+    "importance": 3
   },
   {
     "id": 4,
@@ -29,7 +32,8 @@
     "price": 19.99,
     "tags": ["clothing", "hat"],
     "image": "shuffle_hat_black.avif",
-    "description": "A black hat for all seasons."
+    "description": "A black hat for all seasons.",
+    "importance": 4
   },
   {
     "id": 5,
@@ -37,7 +41,8 @@
     "price": 19.99,
     "tags": ["clothing", "hat"],
     "image": "shuffle_hat_purple.avif",
-    "description": "A purple hat to match your hoodie."
+    "description": "A purple hat to match your hoodie.",
+    "importance": 5
   },
   {
     "id": 6,
@@ -45,7 +50,8 @@
     "price": 59.99,
     "tags": ["clothing", "hoodie"],
     "image": "shuffle_hoodie_black.avif",
-    "description": "A versatile black hoodie for daily use."
+    "description": "A versatile black hoodie for daily use.",
+    "importance": 6
   },
   {
     "id": 7,
@@ -53,15 +59,17 @@
     "price": 25.99,
     "tags": ["clothing", "t-shirt"],
     "image": "shuffle_t_shirt_white.avif",
-    "description": "A classic white t-shirt for every occasion."
+    "description": "A classic white t-shirt for every occasion.",
+    "importance": 7
   },
   {
     "id": 8,
     "title": "Shuffle T-Shirt Black",
     "price": 25.99,
     "tags": ["clothing", "t-shirt"],
-    "image": "shuffle_t_shirt_black.avif",
-    "description": "A stylish black t-shirt for casual wear."
+    "image": "shuffle_t-shirt_black.avif",
+    "description": "A stylish black t-shirt for casual wear.",
+    "importance": 8
   },
   {
     "id": 9,
@@ -69,7 +77,8 @@
     "price": 15.99,
     "tags": ["home", "mug"],
     "image": "ket_club.jpg",
-    "description": "A premium mug for coffee lovers."
+    "description": "A premium mug for coffee lovers.",
+    "importance": 9
   },
   {
     "id": 10,
@@ -77,6 +86,7 @@
     "price": 89.99,
     "tags": ["home", "decor"],
     "image": "waifu_body_pillow.avif",
-    "description": "Comfortable body pillow with a unique design."
+    "description": "Comfortable body pillow with a unique design.",
+    "importance": 1
   }
 ]

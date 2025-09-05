@@ -1,11 +1,54 @@
-<div class="product-card">
-  <h3>{{ product.title }}</h3>
-  <p>Price: ${{ product.price }}</p>
-  {% if product.tags %}
-    <ul>
-      {% for tag in product.tags %}
-        <li>{{ tag }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-</div>
+{% comment %} 
+                                                Product Card Component
+                                                 
+                                                Variables que recibe: 
+                                                - product: Objeto con los datos del producto 
+                                                - product.id: ID del producto 
+                                                - product.title: Título del producto 
+                                                - product.price: Precio del producto 
+                                                - product.tags: Array de tags del producto 
+                                                - product.image: Nombre de la imagen 
+                                                - product.description: Descripción del producto 
+{% endcomment %}
+<link rel="stylesheet" href="{{ 'snippets/styles/product-card.css' | asset_url }}">
+<article
+  class="product-card"
+  itemscope
+  itemtype="https://schema.org/Product">
+    <!-- Tags SEO ocultos -->
+  <meta itemprop="productID" content="{{ product.id }}">
+  <meta itemprop="category" content="{{ product.tags[0] }}">
+  <meta itemprop="description" content="{{ product.description | default: 'Descripción del producto' }}">
+  {% for tag in product.tags %}
+    <meta itemprop="keywords" content="{{ tag }}">
+  {% endfor %}
+  <link itemprop="availability" href="https://schema.org/InStock">
+  <div class="product-image">
+    <div class="img-container">
+      <img
+        src="/assets/img/{{ product.image | default: 'shuffle_crewneck_black.avif' }}"
+        alt="{{ product.title | default: 'Imagen del producto' }}"
+        itemprop="image" />
+    </div>
+  </div>
+  <div class="info-cart-container">
+    <div class="product-info">
+      <h2 itemprop="name">{{ product.title | default: 'Producto Camiseta' }}</h2>
+      <span
+        itemprop="offers"
+        itemscope
+        itemtype="https://schema.org/Offer">
+        <span itemprop="priceCurrency" content="USD">$</span>
+        <span itemprop="price" content="{{ product.price }}">{{ product.price | default: '69.98 USD' }}</span>
+      </span>
+    </div>
+    <div class="cart-button">
+      <div>
+        <img
+          src="/assets/accessories/cart.svg"
+          alt="Añadir al carrito"
+          itemprop="image" />
+      </div>
+    </div>
+  </div>
+</article>

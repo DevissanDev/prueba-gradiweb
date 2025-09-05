@@ -21,6 +21,12 @@
         "background_image": "hero_banner_img.avif"
       }
     },
+    "tape-center": {
+      "type": "tape-center",
+      "settings": {
+        "text_tape_center": "shuffle essentials"
+      }
+    },
 
     "footer": {
       "type": "footer",

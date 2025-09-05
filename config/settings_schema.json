@@ -43,5 +43,15 @@
         "label": "Background Image"
       }
     ]
+  },
+  {
+    "name": "Tape Center",
+    "settings": [
+      {
+        "type": "text",
+        "id": "text_tape_center",
+        "label": "Text Tape Center"
+      }
+    ]
   }
 ]

@@ -13,7 +13,7 @@
   width: 100%;
   height: 32px;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: visible;
 
   /* Flexbox */
   display: flex;
@@ -112,9 +112,12 @@
 .iconstart {
   /* Box Model */
   margin-left: 9px;
+  max-height: none;
+  max-width: none;
 
   /* Visual */
   vertical-align: middle;
+  object-fit: contain;
 }
 
 /* Hover state */
