@@ -78,4 +78,14 @@
   .product-image {
     height: 280px;
   }
+  .cart-button {
+    display: none;
+  }
+  .product-info h2,
+  .product-info span {
+    font-size: 14px;
+  }
+  .product-image {
+    margin-bottom: 10px;
+  }
 }

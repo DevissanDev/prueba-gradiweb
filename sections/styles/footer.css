@@ -1,0 +1,13 @@
+footer {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-width: var(--max-width);
+}
+.socials-form,
+.payment-menu,
+.logo-copyright {
+  display: flex;
+  flex-direction: column;
+}
