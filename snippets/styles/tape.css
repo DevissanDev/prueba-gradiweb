@@ -1,0 +1,133 @@
+.announcement-bar {
+  /* Positioning */
+  position: sticky;
+  top: 0;
+
+  /* Box Model */
+  width: 100%;
+  height: 32px;
+  box-sizing: border-box;
+  overflow: visible;
+
+  /* Flexbox */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Typography */
+  text-align: center;
+
+  /* Visual */
+  background-color: var(--purpure-color);
+  color: white;
+}
+
+/* Topbar inner div */
+.announcement-bar div {
+  /* Positioning */
+  position: relative;
+
+  /* Box Model */
+  width: 100%;
+  height: 100%;
+
+  /* Flexbox */
+  display: flex;
+  align-items: center;
+}
+
+/* Marquee container */
+.announcement-bar .scrolling-content {
+  /* Positioning */
+  position: relative;
+
+  /* Box Model */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  /* Flexbox */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Gradient overlay */
+.announcement-bar .fade-overlay {
+  /* Positioning */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  /* Box Model */
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+
+  /* Visual */
+  background: linear-gradient(
+    to right,
+    rgb(118, 44, 251) 0%,
+    transparent 4%,
+    transparent 96%,
+    rgb(118, 44, 251) 100%
+  );
+}
+
+/* Topbar text */
+.announcement-bar p {
+  /* Positioning */
+  z-index: 1;
+
+  /* Box Model */
+  width: max-content;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  /* Flexbox */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  /* Typography */
+  font-family: var(--font-aeonik);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--white-color);
+  white-space: nowrap;
+
+  /* Animation */
+  animation: seamless-scroll 600s linear infinite;
+}
+
+/* Icon within topbar */
+.separator-icon {
+  /* Box Model */
+  margin-left: 9px;
+  max-height: none;
+  max-width: none;
+
+  /* Visual */
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+/* Hover state */
+.announcement-bar:hover p {
+  animation-play-state: paused;
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+
+@keyframes seamless-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="{{ 'sections/styles/header.css' | asset_url }}">
+<section class="header">
+  <div class="header__menu">
+    <div>
+      <img
+        src="{{ 'accessories/menu.svg' | asset_url }}"
+        alt="Menú"
+        width="36"
+        height="15">
+    </div>
+    <div class="header__menu-mini-items">
+      <div class="header__logo-mini">
+        <img src="{{ 'logos/shufflemini.svg' | asset_url }}" alt="shuffle mini logo">
+      </div>
+      <div class="header__separator">
+        <p>|</p>
+      </div>
+      <div class="header__logo-name">
+        <p>STORE</p>
+      </div>
+    </div>
+  </div>
+  <div class="header__logo">
+    <img
+      src="{{ 'logos/shuffle.svg' | asset_url }}"
+      alt="Logo de la marca"
+      class="header__logo-img"
+      width="120"
+      height="35">
+  </div>
+
+
+  <div class="header__payment-methods">
+    <div class="header__payment-icons">
+      <div class="header__payment-background">
+        <p>We Accept</p>
+        <span class="header__payment-icon">
+          <img src="{{ 'logos/bitcoin.svg' | asset_url }}" alt="">
+        </span>
+        <span class="header__payment-icon">
+          <img src="{{ 'logos/ethereum.svg' | asset_url }}" alt="">
+        </span>
+        <span class="header__payment-icon">
+          <img src="{{ 'logos/Litecoin.svg' | asset_url }}" alt="">
+        </span>
+        <span class="header__payment-icon">
+          <img src="{{ 'logos/dcoin.svg' | asset_url }}" alt="">
+        </span>
+        <span class="header__payment-icon">
+          <img src="{{ 'logos/usdcoin.svg' | asset_url }}" alt="">
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="header__links">
+    <a href="/cuenta" class="header__link--all-products">All Products</a>
+    <a href="/carrito" class="header__link--collections">Collections</a>
+    <div class="header__shopping-cart">
+      <button>
+        <img src="{{ 'accessories/cart.svg' | asset_url }}" alt="Shopping Cart">
+      </button>
+    </div>
+  </div>
+</section>

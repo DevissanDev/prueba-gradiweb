@@ -1,0 +1,90 @@
+@font-face {
+  font-family: "Aeonik";
+  src: url("/assets/fonts/fonnts.com-Aeonik-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aeonik";
+  src: url("/assets/fonts/fonnts.com-Aeonik-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Countach";
+  src: url("/assets/fonts/Countach-Light-TRIAL-BF63c5f208a6fb6.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Countach";
+  src: url("/assets/fonts/Countach-LightItalic-TRIAL-BF63c5f208aed97.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Countach";
+  src: url("/assets/fonts/Countach-Regular-TRIAL-BF63c5f207736f1.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Countach";
+  src: url("/assets/fonts/Countach-Italic-TRIAL-BF63c5f2084b0d3.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Countach";
+  src: url("/assets/fonts/Countach-Bold-TRIAL-BF63c5f2076e572.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Countach";
+  src: url("/assets/fonts/Countach-BoldItalic-TRIAL-BF63c5f2076e1b8.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+:root {
+  --font-aeonik: "Aeonik", sans-serif;
+  --font-countach: "Countach", sans-serif;
+  --white-color: rgb(255, 255, 255);
+  --width-max: 1440px;
+  --purpure-color: rgb(118, 44, 251);
+  --purpure-color-hover: rgba(116, 44, 251, 0.897);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(23, 23, 23);
+  background-image: url("/assets/accessories/bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Global responsive styles */
+
+img {
+  max-width: 100%;
+  height: auto;
+}

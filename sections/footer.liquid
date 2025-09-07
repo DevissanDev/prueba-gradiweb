@@ -1,0 +1,136 @@
+<link rel="stylesheet" href="{{ 'sections/styles/footer.css' | asset_url }}">
+<footer class="footer">
+  <div class="footer__logo-copyright">
+    <div class="footer__logo-mini-container">
+      <div class="footer__logo-mini">
+        <img src="{{ 'logos/shufflemini.svg' | asset_url }}" alt="shuffle mini logo">
+      </div>
+      <div class="footer__separator">
+        <p>|</p>
+      </div>
+      <div class="footer__logo-name">
+        <p>{{ settings['footer'].settings.logo_text | upcase }}</p>
+      </div>
+    </div>
+    <div class="footer__copyright-text">
+      <p>{{ settings['footer'].settings.copyright_text }}</p>
+      <p>{{ settings['footer'].settings.support_text }}</p>
+      <p>{{ settings['footer'].settings.support_email }}</p>
+    </div>
+  </div>
+  <div class="footer__payment-menu">
+    <div class="footer__menu-primary">
+      {% for item in settings['footer'].settings.primary_menu %}
+        <div class="footer__menu-item" data-url="{{ item.url }}">
+          <a href="{{ item.url }}">{{ item.label | upcase }}</a>
+          <div class="footer__underlined"></div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="footer__menu-secondary">
+      {% for link in settings['footer'].settings.secondary_menu %}
+        <a href="{{ link.url }}">{{ link.label }}</a>
+      {% endfor %}
+    </div>
+    <div class="footer__payment-container">
+      <div class="footer__payment-text">
+        <p>We accept all major cards, PayPal & crypto
+
+        </p>
+      </div>
+      <div class="footer__payment">
+        <img
+          src="{{ 'logos/bitcoin.svg' | asset_url }}"
+          alt="Bitcoin"
+          width="24"
+          height="24">
+        <img
+          src="{{ 'logos/ethereum.svg' | asset_url }}"
+          alt="Ethereum"
+          width="24"
+          height="24">
+        <img
+          src="{{ 'logos/litecoin.svg' | asset_url }}"
+          alt="Litecoin"
+          width="24"
+          height="24">
+
+        <img
+          src="{{ 'logos/dcoin.svg' | asset_url }}"
+          alt="D Coin"
+          width="24"
+          height="24">
+        <img
+          src="{{ 'logos/usdcoin.svg' | asset_url }}"
+          alt="USD Coin"
+          width="24"
+          height="24">
+      </div>
+    </div>
+  </div>
+  <div class="footer__socials-form">
+    <div class="footer__subscribe-text">
+      <p>Subscribe and receive drop notifications</p>
+    </div>
+    <div class="footer__form">
+
+      <form id="emailForm">
+        <div class="footer__input-container">
+          <input
+            type="email"
+            id="emailInput"
+            placeholder="Enter Email"
+            required>
+          <button type="submit" class="footer__submit-btn">
+            <img
+              src="{{ 'accessories/row.svg' | asset_url }}"
+              alt="Submit"
+              class="footer__row-icon">
+          </button>
+        </div>
+      </form>
+      <div id="messageDisplay" class="footer__message-display"></div>
+    </div>
+    <div class="footer__socials">
+      <a href="">FACEBOOK</a>
+      <a href="">X( TWITTER )</a>
+      <a href="">INSTAGRAM</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const currentPath = window.location.pathname;
+    const menuItems = document.querySelectorAll('.footer__menu-item');
+    
+    menuItems.forEach(function(item) {
+      const itemUrl = item.getAttribute('data-url');
+      const underline = item.querySelector('.footer__underlined');
+      
+      if (itemUrl === currentPath || (itemUrl === '/' && currentPath === '/')) {
+        underline.classList.add('footer__underlined--active');
+      }
+    });
+  
+    const emailForm = document.getElementById('emailForm');
+    const messageDisplay = document.getElementById('messageDisplay');
+    
+    emailForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const emailInput = document.getElementById('emailInput');
+      const email = emailInput.value;
+      
+      if (email) {
+        messageDisplay.innerHTML = '<p class="footer__success-message">¡Gracias por suscribirte! Te enviaremos las últimas noticias a: ' + email + '</p>';
+        messageDisplay.style.display = 'block';
+        emailInput.value = '';
+        
+        setTimeout(function() {
+          messageDisplay.style.display = 'none';
+        }, 5000);
+      }
+    });
+  });
+</script>
