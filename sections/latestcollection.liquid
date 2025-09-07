@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="{{ 'sections/styles/latestcollection.css' | asset_url }}">
+
+<section class="latest-collection">
+  <div class="latest-collection__title">
+    <span><img
+        class="latest-collection__star--external"
+        src="{{ 'accessories/start.svg' | asset_url }}"
+        alt="icon"></span>
+    <h2>
+      <span class="latest-collection__star--inline latest-collection__star--one"><img
+          class="latest-collection__star-inline"
+          src="{{ 'accessories/start.svg' | asset_url }}"
+          alt="icon">
+      </span>
+      LATEST
+      <span class="latest-collection__star--inline latest-collection__star--two"><img
+          class="latest-collection__star-inline"
+          src="{{ 'accessories/start.svg' | asset_url }}"
+          alt="icon"></span>
+      COLLECTION
+    </h2>
+    <span><img
+        class="latest-collection__star--external"
+        src="{{ 'accessories/start.svg' | asset_url }}"
+        alt="icon"></span>
+  </div>
+  <div class="latest-collection__images">
+    {% assign filtered_collections = '' %}
+    {% assign filtered_count = 0 %}
+
+    {% for collection in collections %}
+      {% assign collection_year = collection[1].created_at | date: '%Y' | plus: 0 %}
+      {% if collection_year >= 2025 and filtered_count < 4 %}
+        <div class="latest-collection__item">
+          <a onclick="showAlert('{{ collection[1].title }}')" href="">
+            <img
+              src="{{ collection[1].image | prepend: 'img/' | asset_url }}"
+              alt="{{ collection[1].title }}"
+              width="400"
+              height="400">
+            <div class="latest-collection__overlay">
+              <h3>{{ collection[1].title }}</h3>
+            </div>
+          </a>
+        </div>
+        {% assign filtered_count = filtered_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<script>
+  function showAlert(collectionName) {
+   alert('Functionality to direct to another tab for: ' + collectionName);    
+  }
+</script>

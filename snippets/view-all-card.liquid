@@ -1,0 +1,43 @@
+{% comment %} 
+        View All Products Card Component 
+      
+        Card especial para mostrar "Ver todos los productos" 
+        con las mismas dimensiones que las product cards 
+{% endcomment %}
+<link rel="stylesheet" href="{{ 'snippets/styles/view-all-card.css' | asset_url }}">
+<article class="product-card catalog-preview-card">
+  <div class="product-card__image-wrapper catalog-preview-card__image-wrapper">
+    <div class="product-card__image-container catalog-preview-card__container">
+      <div class="catalog-preview-card__content">
+        <div class="catalog-preview-card__icon">
+          <svg
+            width="48"
+            height="48"
+            viewBox="0 0 24 24"
+            fill="currentColor">
+            <path d="M4 4h4v4H4V4zm6 0h4v4h-4V4zm6 0h4v4h-4V4zM4 10h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4zM4 16h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4z" />
+          </svg>
+        </div>
+        <h3 class="catalog-preview-card__title">VIEW ALL</h3>
+        <p class="catalog-preview-card__description">Explore our full collection</p>
+      </div>
+    </div>
+  </div>
+  <div class="product-card__footer">
+    <div class="product-card__details">
+      <h2>Complete Catalog</h2>
+      <span>Discover more</span>
+    </div>
+    <div class="product-card__add-to-cart-btn">
+      <div>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="currentColor">
+          <path d="M8 1L15 8L8 15L7 14L13 8L7 2L8 1Z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+</article>

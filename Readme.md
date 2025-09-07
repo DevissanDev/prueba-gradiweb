@@ -1,145 +1,77 @@
-# Shopify Simulator Documentation
+# Shuffle Store - E-commerce Website
 
-Welcome to **Shopify Simulator**, a lightweight environment designed to help developers explore Shopify's Liquid templating language and dynamic section-based architecture. This project simulates Shopify's core functionalities, enabling developers to practice creating reusable components, iterating through data, and working with dynamic settings.
+**Project Name:** Shuffle Store  
+**Author:** DevissanDev  
+**Created:** 2024  
+**Last Updated:** September 7, 2025  
+**Version:** 2.0.0
+
+## **About This Project**
+
+This is a modern e-commerce website for "Shuffle Store", a streetwear and urban fashion brand. The project demonstrates skills in web development by creating a fully functional online store with a clean, responsive design.
+
+## **Technologies Used**
+
+- **Backend:** Node.js and Express
+- **Frontend:** HTML, CSS, JavaScript
+- **Template System:** Liquid (similar to Shopify)
+- **Build Tools:** Webpack
+- **Version Control:** Git
+
+---
+
+## **Requirements**
+
+- **Node.js** (version 16 or higher)
+- **Web browser** (Chrome, Firefox, Safari, Edge)
+- **Code editor** (VS Code recommended)
 
 ---
 
 ## **Project Structure**
 
 ```
-/simulator
-├── /config
-│   ├── settings_schema.json      # Defines configurable settings for sections
-│   ├── settings_data.json        # Stores dynamic data for rendering sections
-├── /data
-│   ├── products.json             # Sample product data
-│   ├── collections.json          # Sample collection data
-├── /public
-│   ├── styles.css                # Compiled CSS file
-│   ├── main.js                   # Compiled JavaScript file
-├── /sections
-│   ├── featured-products.liquid  # Main section rendering product lists
-├── /snippets
-│   ├── product-card.liquid       # Reusable snippet for individual product cards
-├── /templates
-│   ├── index.liquid              # Main template file
-├── /src
-│   ├── styles.scss               # Base SASS file
-│   ├── app.js                    # Base JavaScript logic
-├── /assets                       # Images for products, banners, and collections
-├── package.json
-├── webpack.config.js
-├── server.js
+├── /assets                # Images, fonts, and icons
+├── /sections              # Main page components
+├── /snippets              # Reusable components
+├── /templates             # Page templates
+├── /src                   # Source files (logic)
+├── /config                # Site settings
+├── /data                  # Product and collection data
+└── /public                # Built files
 ```
 
 ---
 
-## **Liquid Basics**
+## **Installation**
 
-Liquid is a templating language used in Shopify to dynamically render content. Below are the key concepts you'll use in this simulator:
+1. **Clone the project**
 
-### **Sections**
+   ```bash
+   git clone https://github.com/DevissanDev/prueba-gradiweb.git
+   cd prueba-gradiweb
+   ```
 
-Sections are modular components that render specific parts of a page. For example, the `featured-products.liquid` file is a section that displays a list of products. Sections can:
+2. **Install dependencies**
 
-- Access dynamic data from `settings_data.json`.
-- Be configured through a schema defined in `settings_schema.json`.
+   ```bash
+   npm install
+   ```
 
-Example:
+3. **Start the project**
 
-```liquid
-<section class="featured-products">
-  <h2>{{ settings['featured-products'].settings.heading }}</h2>
-</section>
-```
+   ```bash
+   npm start
+   ```
 
-### **Snippets**
+4. **Open in browser**  
+   Go to `http://localhost:3000`
 
-Snippets are reusable components, such as a product card. You can include a snippet using the `{% render %}` tag:
+## **Code Standards**
 
-Example:
+- **File naming:** kebab-case (hero-banner.liquid)
+- **CSS classes:** BEM methodology (block\_\_element--modifier)
+- **JavaScript:** camelCase variables
+- **Git branches:** feature/feature-name
 
-```liquid
-<div class="product-list">
-  {% for product in products %}
-    {% render 'product-card', product: product %}
-  {% endfor %}
-</div>
-```
-
-### **Iterating Over Objects**
-
-Liquid allows you to iterate over arrays, such as products or collections:
-
-```liquid
-<ul>
-  {% for product in products %}
-    <li>{{ product.title }} - ${{ product.price }}</li>
-  {% endfor %}
-</ul>
-```
-
-### **Filters**
-
-Filters are used to manipulate output. Some common filters:
-
-- `capitalize`: Capitalizes the first letter.
-- `date`: Formats a date.
-- `money`: Formats a number as currency.
-
-Example:
-
-```liquid
-{{ product.price | money }}
-{{ product.created_at | date: "%B %d, %Y" }}
-```
-
----
-
-## **Dynamic Configuration**
-
-### **Schema (`settings_schema.json`)**
-
-The schema defines the settings available for a section. While it's necessary in Shopify, it might not be required here.
-
-### **Data (`settings_data.json`)**
-
-This file contains the dynamic values for settings
-
-## **Setup Instructions**
-
-### **Install Dependencies**
-
-```bash
-npm install
-```
-
-### **Run the Server**
-
-```bash
-npm start
-```
-
-### **Build Styles and Scripts**
-
-```bash
-npm run build
-```
-
----
-
-## **Additional Notes**
-
-### **Assets**
-
-All product, banner, and collection images are stored in the `/assets` folder. Refer to the `data/products.json` and `data/collections.json` files for mappings.
-
-### **Testing the Application**
-
-Visit `http://localhost:3000` in your browser to view the simulator in action.
-
----
-
-Feel free to customize the simulator further to match your requirements. Happy coding! 🚀
-
-For more information about Liquid, refer to the [official Liquid documentation](https://liquidjs.com/tutorials/intro-to-liquid.html).
+**View the live project at:** `http://localhost:3000` after installation

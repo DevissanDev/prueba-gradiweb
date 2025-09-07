@@ -1,0 +1,38 @@
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+}
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(35, 33, 40, 0.3);
+  backdrop-filter: blur(16px);
+  margin-bottom: 8px;
+}
+.hero-banner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 35px;
+  margin-top: 120px;
+}
+.tape-center-container {
+  margin-bottom: 25px;
+}
+.footer-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

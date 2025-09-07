@@ -1,5 +1,15 @@
 [
   {
+    "name": "Top Bar",
+    "settings": [
+      {
+        "type": "text",
+        "id": "marquee_text",
+        "label": "Marquee Text"
+      }
+    ]
+  },
+  {
     "name": "Featured Products",
     "settings": [
       {
@@ -11,6 +21,46 @@
         "type": "color",
         "id": "background_color",
         "label": "Background Color"
+      }
+    ]
+  },
+  {
+    "name": "Hero Banner",
+    "settings": [
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "text",
+        "id": "button_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "text",
+        "id": "background_image",
+        "label": "Background Image"
+      }
+    ]
+  },
+  {
+    "name": "Tape Center",
+    "settings": [
+      {
+        "type": "text",
+        "id": "text_tape_center",
+        "label": "Text Tape Center"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "text",
+        "id": "logo_text",
+        "label": "Logo Text"
       }
     ]
   }
