@@ -1,33 +1,30 @@
 <link rel="stylesheet" href="{{ 'sections/styles/featured-products.css' | asset_url }}">
-<section aria-label="Catálogo de productos" class="product-grid">
+<section aria-label="Catálogo de productos" class="featured-products__grid">
   {% assign featured_products = collections['featured-products'].products %}
   {% assign visible_products = featured_products | slice: 0, 4 %}
   {% assign hidden_products = featured_products | slice: 4, featured_products.size %}
 
-  <!-- Productos visibles inicialmente -->
   {% for product in visible_products %}
-    <div class="product-item visible">
+    <div class="featured-products__item featured-products__item--visible">
       {% render 'product-card'
         , product: product %}
     </div>
   {% endfor %}
 
-  <!-- Productos ocultos inicialmente -->
   {% for product in hidden_products %}
-    <div class="product-item hidden">
+    <div class="featured-products__item featured-products__item--hidden">
       {% render 'product-card'
         , product: product %}
     </div>
   {% endfor %}
 
-  <!-- Card "Ver todos los productos" - solo aparece con "Ver más" -->
-  <div class="product-item hidden view-all-item">
+  <div class="featured-products__item featured-products__item--hidden featured-products__view-all-item">
     {% render 'view-all-card' %}
   </div>
 
   {% if hidden_products.size > 0 %}
-    <div class="show-more-container">
-      <button id="showMoreBtn" class="show-more-btn">
+    <div class="featured-products__show-more-container">
+      <button id="showMoreBtn" class="featured-products__show-more-btn">
         <span class="show-text">SEE MORE</span>
         <span class="hide-text" style="display: none;">VIEW LEES</span>
       </button>
@@ -38,10 +35,10 @@
 <script>
   document.addEventListener('DOMContentLoaded', function() {
   
-  const productGrid = document.querySelector('.product-grid');
+  const featuredProductsGrid = document.querySelector('.featured-products__grid');
   const showMoreBtn = document.getElementById('showMoreBtn');
-  const hiddenProducts = document.querySelectorAll('.product-item.hidden');
-  const viewAllItem = document.querySelector('.view-all-item');
+  const hiddenProducts = document.querySelectorAll('.featured-products__item--hidden');
+  const viewAllItem = document.querySelector('.featured-products__view-all-item');
   const showText = showMoreBtn ? showMoreBtn.querySelector('.show-text') : null;
   const hideText = showMoreBtn ? showMoreBtn.querySelector('.hide-text') : null;
   let hasAnimated = false;
@@ -55,38 +52,37 @@
     entries.forEach(entry => {
       if (entry.isIntersecting && !hasAnimated) {
         hasAnimated = true;
-        productGrid.classList.add('animate-in');
-        const visibleProducts = document.querySelectorAll('.product-item.visible');
+        featuredProductsGrid.classList.add('featured-products__grid--animated');
+        const visibleProducts = document.querySelectorAll('.featured-products__item--visible');
         setTimeout(() => {
           visibleProducts.forEach((product, index) => {
             setTimeout(() => {
-              product.classList.add('animate-product');
+              product.classList.add('featured-products__item--animated');
             }, index * 100); 
           });
         }, 400); 
-        observer.unobserve(productGrid);
+        observer.unobserve(featuredProductsGrid);
       }
     });
   }, observerOptions);
   
   
-  if (productGrid) {
-    observer.observe(productGrid);
+  if (featuredProductsGrid) {
+    observer.observe(featuredProductsGrid);
   }  
   
-  // Funcionalidad para el botón "Ver más"
   if (showMoreBtn) {
     showMoreBtn.addEventListener('click', function() {
       const isExpanded = showMoreBtn.classList.contains('expanded');
   
       if (!isExpanded) {
         hiddenProducts.forEach((product, index) => {
-          product.classList.remove('hidden');
-          product.classList.add('visible', 'show-more-animation');
+          product.classList.remove('featured-products__item--hidden');
+          product.classList.add('featured-products__item--visible', 'featured-products__item--show-more-animation');
           product.offsetHeight;
   
           setTimeout(() => {
-            product.classList.add('animate-product');
+            product.classList.add('featured-products__item--animated');
           }, index * 120 + 150); 
         });
       
@@ -96,9 +92,9 @@
         
       } else {
         hiddenProducts.forEach((product, index) => {
-          product.classList.remove('animate-product');
-          product.classList.remove('visible', 'show-more-animation');
-          product.classList.add('hidden');
+          product.classList.remove('featured-products__item--animated');
+          product.classList.remove('featured-products__item--visible', 'featured-products__item--show-more-animation');
+          product.classList.add('featured-products__item--hidden');
         });
         
         showText.style.display = 'inline';
@@ -106,7 +102,7 @@
         showMoreBtn.classList.remove('expanded');
   
         setTimeout(() => {
-          document.querySelector('.product-grid').scrollIntoView({ 
+          document.querySelector('.featured-products__grid').scrollIntoView({ 
             behavior: 'smooth', 
             block: 'start' 
           });

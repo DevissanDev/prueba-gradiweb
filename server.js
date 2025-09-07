@@ -72,6 +72,7 @@ app.get("/", (req, res) => {
     products,
     collections: processedCollections,
     settings: settings.sections,
+    current_path: req.path,
   });
 });
 

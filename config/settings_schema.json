@@ -53,5 +53,15 @@
         "label": "Text Tape Center"
       }
     ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "text",
+        "id": "logo_text",
+        "label": "Logo Text"
+      }
+    ]
   }
 ]

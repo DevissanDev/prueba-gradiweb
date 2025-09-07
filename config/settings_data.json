@@ -31,12 +31,21 @@
     "footer": {
       "type": "footer",
       "settings": {
-        "logo_text": "MyShopify",
-        "links": [
+        "logo_text": "STORE",
+        "copyright_text": "Copyright © 2024 SHUFFLE",
+        "social_title": "Follow Us",
+        "newsletter_title": "Newsletter",
+        "newsletter_placeholder": "Enter your email",
+        "newsletter_button": "Subscribe",
+        "support_text": "Studio Plaid. Need help?",
+        "support_email": "Email support@shuffle.store",
+        "primary_menu": [
           { "label": "Home", "url": "/" },
           { "label": "Cart", "url": "/cart" },
           { "label": "All Products", "url": "/collections/all" },
-          { "label": "Collections", "url": "/collections" },
+          { "label": "Collections", "url": "/collections" }
+        ],
+        "secondary_menu": [
           { "label": "Refund Policy", "url": "/refund-policy" },
           { "label": "Privacy Policy", "url": "/privacy-policy" },
           { "label": "Terms of Service", "url": "/terms-of-service" }

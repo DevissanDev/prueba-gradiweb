@@ -1,15 +1,15 @@
 {% comment %} 
-      View All Products Card Component 
-    
-      Card especial para mostrar "Ver todos los productos" 
-      con las mismas dimensiones que las product cards 
+        View All Products Card Component 
+      
+        Card especial para mostrar "Ver todos los productos" 
+        con las mismas dimensiones que las product cards 
 {% endcomment %}
 <link rel="stylesheet" href="{{ 'snippets/styles/view-all-card.css' | asset_url }}">
-<article class="product-card view-all-card">
-  <div class="product-image view-all-image">
-    <div class="img-container view-all-container">
-      <div class="view-all-content">
-        <div class="view-all-icon">
+<article class="product-card catalog-preview-card">
+  <div class="product-card__image-wrapper catalog-preview-card__image-wrapper">
+    <div class="product-card__image-container catalog-preview-card__container">
+      <div class="catalog-preview-card__content">
+        <div class="catalog-preview-card__icon">
           <svg
             width="48"
             height="48"
@@ -18,17 +18,17 @@
             <path d="M4 4h4v4H4V4zm6 0h4v4h-4V4zm6 0h4v4h-4V4zM4 10h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4zM4 16h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4z" />
           </svg>
         </div>
-        <h3 class="view-all-title">VIEW ALL</h3>
-        <p class="view-all-description">Explore our full collection</p>
+        <h3 class="catalog-preview-card__title">VIEW ALL</h3>
+        <p class="catalog-preview-card__description">Explore our full collection</p>
       </div>
     </div>
   </div>
-  <div class="info-cart-container">
-    <div class="product-info">
+  <div class="product-card__footer">
+    <div class="product-card__details">
       <h2>Complete Catalog</h2>
       <span>Discover more</span>
     </div>
-    <div class="cart-button view-all-button">
+    <div class="product-card__add-to-cart-btn">
       <div>
         <svg
           width="16"

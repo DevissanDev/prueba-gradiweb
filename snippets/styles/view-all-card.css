@@ -1,10 +1,10 @@
 /* View All Products Card Styles */
-.view-all-card {
+.catalog-preview-card {
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.view-all-image {
+.catalog-preview-card__image-wrapper {
   background: linear-gradient(
     135deg,
     rgba(118, 44, 251, 0.8),
@@ -15,7 +15,7 @@
   overflow: hidden;
 }
 
-.view-all-image:hover {
+.catalog-preview-card__image-wrapper:hover {
   background: linear-gradient(
     135deg,
     rgba(118, 44, 251, 1),
@@ -24,7 +24,7 @@
   ) !important;
 }
 
-.view-all-container {
+.catalog-preview-card__container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,36 +32,36 @@
   position: relative;
 }
 
-.view-all-content {
+.catalog-preview-card__content {
   text-align: center;
   color: white;
   z-index: 2;
   padding: 20px;
 }
 
-.view-all-icon {
+.catalog-preview-card__icon {
   margin-bottom: 16px;
   opacity: 0.9;
   transition: transform 0.3s ease;
 }
 
-.view-all-card:hover .view-all-icon {
+.catalog-preview-card:hover .catalog-preview-card__icon {
   transform: scale(1.1);
 }
 
-.view-all-icon svg {
+.catalog-preview-card__icon svg {
   width: 48px;
   height: 48px;
 }
 
-.view-all-title {
+.catalog-preview-card__title {
   font-family: var(--font-aeonik);
   font-size: 20px;
   font-weight: bold;
   margin: 0 0 8px 0;
 }
 
-.view-all-description {
+.catalog-preview-card__description {
   font-family: var(--font-aeonik);
   font-size: 14px;
   margin: 0;
@@ -71,15 +71,15 @@
 
 /* Responsive */
 @media (max-width: 800px) {
-  .view-all-title {
+  .catalog-preview-card__title {
     font-size: 18px;
   }
 
-  .view-all-description {
+  .catalog-preview-card__description {
     font-size: 13px;
   }
 
-  .view-all-icon svg {
+  .catalog-preview-card__icon svg {
     width: 40px;
     height: 40px;
   }

@@ -1,4 +1,4 @@
-.collection {
+.latest-collection {
   max-width: var(--width-max);
   padding: 16px 40px;
   box-sizing: border-box;
@@ -8,7 +8,7 @@
   background-size: 30%;
   padding-top: 40px;
 }
-.title {
+.latest-collection__title {
   display: flex;
   font-family: var(--font-countach);
   font-size: 60px;
@@ -19,32 +19,29 @@
   margin-bottom: 30px;
   text-align: center;
 }
-.title h2 {
+.latest-collection__title h2 {
   margin: 0;
 }
-.title img {
+.latest-collection__title img {
   width: 70px;
   height: 70px;
 }
 
-/* Estrellas inline ocultas por defecto */
-.inline-star {
+.latest-collection__star--inline {
   display: none;
 }
 
-/* Estrellas externas visibles por defecto */
-.external-star {
+.latest-collection__star--external {
   display: block;
 }
-.images {
+.latest-collection__images {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
   margin-top: 40px;
 }
 
-/* Estilos generales para todos los items de colección */
-.images .collection-item {
+.latest-collection__images .latest-collection__item {
   position: relative;
   border-radius: 5px;
   overflow: hidden;
@@ -53,8 +50,7 @@
   background: var(--dark-color, #000);
 }
 
-/* Estilos para las imágenes */
-.images .collection-item img {
+.latest-collection__images .latest-collection__item img {
   width: 100%;
   height: 400px;
   object-fit: cover;
@@ -63,12 +59,11 @@
   transform: scale(1.4);
 }
 
-.images .collection-item:hover img {
+.latest-collection__images .latest-collection__item:hover img {
   transform: scale(1.7);
 }
 
-/* Overlay para el texto - siempre visible */
-.collection-overlay {
+.latest-collection__overlay {
   position: absolute;
   bottom: 30px;
   left: 20px;
@@ -76,7 +71,7 @@
   padding: 30px 20px 20px;
 }
 
-.collection-overlay h3 {
+.latest-collection__overlay h3 {
   color: #ffffff;
   font-family: var(--font-aeonik);
   font-size: 1.9rem;
@@ -85,92 +80,90 @@
   font-weight: 500;
 }
 
-/* Enlaces sin decoración */
-.images .collection-item a {
+.latest-collection__images .latest-collection__item a {
   display: block;
   text-decoration: none;
   color: inherit;
 }
-.star-inline {
+.latest-collection__star-inline {
   transform: translateY(10px);
 }
 @media (max-width: 900px) {
-  .images {
+  .latest-collection__images {
     grid-template-columns: 1fr;
     gap: 20px;
   }
 
-  .images .collection-item img {
+  .latest-collection__images .latest-collection__item img {
     height: 300px;
   }
 
-  .title {
+  .latest-collection__title {
     font-size: 40px;
   }
-  .title img {
+  .latest-collection__title img {
     width: 50px;
     height: 50px;
   }
-  .collection {
+  .latest-collection {
     padding: 16px 20px;
   }
 }
 
-/* En pantallas menores a 500px: ocultar estrellas externas y mostrar las inline */
 @media (max-width: 500px) {
-  .external-star {
+  .latest-collection__star--external {
     display: none;
   }
 
-  .inline-star {
+  .latest-collection__star--inline {
     display: inline;
     margin-right: 8px;
   }
 
-  .star-one .star-inline {
+  .latest-collection__star--one .latest-collection__star-inline {
     transform: translateY(10px) translateX(-40px);
   }
 
-  .star-two .star-inline {
+  .latest-collection__star--two .latest-collection__star-inline {
     transform: translateY(10px) translateX(40px);
   }
 
-  .collection {
+  .latest-collection {
     padding-top: 100px;
     background-position: 50% 5%;
     background-size: 120%;
   }
 
-  .images {
+  .latest-collection__images {
     gap: 15px;
   }
 
-  .images .collection-item img {
+  .latest-collection__images .latest-collection__item img {
     height: 410px;
   }
-  .collection-overlay {
+  .latest-collection__overlay {
     bottom: 20px;
     left: 10px;
   }
 
-  .collection-overlay h3 {
+  .latest-collection__overlay h3 {
     font-size: 1.7rem;
   }
 }
 
 @media (max-width: 360px) {
-  .title {
+  .latest-collection__title {
     font-size: 30px;
   }
-  .star-one .star-inline {
+  .latest-collection__star--one .latest-collection__star-inline {
     transform: translateY(10px) translateX(-10px);
   }
 
-  .star-two .star-inline {
+  .latest-collection__star--two .latest-collection__star-inline {
     transform: translateY(10px) translateX(10px);
   }
 
-  .images .collection-item img {
+  .latest-collection__images .latest-collection__item img {
     height: 220px;
   }
 }

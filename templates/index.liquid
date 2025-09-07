@@ -3,10 +3,43 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!-- SEO Meta Tags -->
+    <meta name="description" content="Shuffle Store - Your premium streetwear and urban fashion destination. Discover our exclusive collections of clothing, accessories and essentials.">
+    <meta name="keywords" content="streetwear, urban fashion, shuffle, online store, clothing, accessories, casual wear, essentials">
+    <meta name="author" content="Shuffle Store">
+    <meta name="robots" content="index, follow">
+
+      <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Shuffle Store - Streetwear & Urban Fashion">
+    <meta property="og:description" content="Discover the best streetwear and urban fashion collection at Shuffle Store. Premium quality and unique style.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ 'logos/shuffle.svg' | asset_url }}">
+    <meta property="og:url" content="{{ request.origin }}{{ request.path }}">
+    <meta property="og:site_name" content="Shuffle Store">
+
+      <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Shuffle Store - Streetwear & Urban Fashion">
+    <meta name="twitter:description" content="Discover the best streetwear and urban fashion collection at Shuffle Store. Premium quality and unique style.">
+    <meta name="twitter:image" content="{{ 'logos/shuffle.svg' | asset_url }}">
+
+      <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="{{ 'logos/shufflemini.svg' | asset_url }}">
+    <link rel="alternate icon" href="{{ 'logos/shufflemini.svg' | asset_url }}">
+
+      <!-- Canonical URL -->
+    <link rel="canonical" href="{{ request.origin }}{{ request.path }}">
+
+      <!-- Stylesheets -->
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="/templates/styles/index.css">
     <link rel="stylesheet" href="{{ 'snippets/styles/top-bar.css' | asset_url }}">
-    <title>Shopify Simulator | Gradiweb</title>
+
+    <title>Shuffle Store - Streetwear & Urban Fashion</title>
   </head>
   <body>
     <nav>
@@ -23,6 +56,9 @@
       {% include 'featured-products' %}
       {% include 'latestcollection' %}
     </main>
+    <section class="footer-section">
+      {% include 'footer' %}
+    </section>
     <script src="{{ 'main.js' | asset_url }}" defer></script>
   </body>
 </html>

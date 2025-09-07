@@ -1,4 +1,4 @@
-.product-grid {
+.featured-products__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
@@ -7,37 +7,32 @@
   margin: 0 auto;
   padding: 16px 40px;
   box-sizing: border-box;
-  /* Preparar para animaciones de entrada */
   opacity: 0;
   transform: scale(0.8);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-/* Estado animado cuando la sección está visible */
-.product-grid.animate-in {
+.featured-products__grid--animated {
   opacity: 1;
   transform: scale(1);
 }
 
-/* Estilos para controlar visibilidad de productos */
-.product-item.hidden {
+.featured-products__item--hidden {
   display: none;
 }
 
-.product-item.visible {
+.featured-products__item--visible {
   display: block;
 }
 
-/* Contenedor del botón "Ver más" */
-.show-more-container {
+.featured-products__show-more-container {
   grid-column: 1 / -1;
   display: flex;
   justify-content: center;
   margin-top: 32px;
 }
 
-/* Estilos del botón "Ver más" */
-.show-more-btn {
+.featured-products__show-more-btn {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -55,63 +50,56 @@
   padding: 20px 20px;
 }
 
-.show-more-btn:hover {
+.featured-products__show-more-btn:hover {
   background-color: var(--purpure-color);
   transform: translateY(-2px);
 }
 
-.show-more-btn:active {
+.featured-products__show-more-btn:active {
   transform: translateY(0);
 }
 
-/* Icono de flecha */
-.arrow-icon {
+.featured-products__arrow-icon {
   transition: transform 0.3s ease;
 }
 
-/* Animaciones para productos individuales */
-.product-item {
+.featured-products__item {
   transition: opacity 0.5s ease, transform 0.5s ease;
   opacity: 0;
   transform: translateY(20px) scale(0.9);
 }
 
-/* Animación más rápida para productos que aparecen con "Ver más" */
-.product-item.show-more-animation {
+.featured-products__item--show-more-animation {
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* Animaciones escalonadas para los productos */
-.product-item.animate-product {
+.featured-products__item--animated {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
 
-/* Delays para productos iniciales (primeras 4 posiciones) */
-.product-item.animate-product:nth-child(1) {
+.featured-products__item--animated:nth-child(1) {
   transition-delay: 0.1s;
 }
 
-.product-item.animate-product:nth-child(2) {
+.featured-products__item--animated:nth-child(2) {
   transition-delay: 0.2s;
 }
 
-.product-item.animate-product:nth-child(3) {
+.featured-products__item--animated:nth-child(3) {
   transition-delay: 0.3s;
 }
 
-.product-item.animate-product:nth-child(4) {
+.featured-products__item--animated:nth-child(4) {
   transition-delay: 0.4s;
 }
 
-/* Para la card "Ver todos" */
-.view-all-item.animate-product {
+.featured-products__view-all-item--animated {
   transition-delay: 0.7s;
 }
 
-/* Media query para tablets y móviles - slider horizontal */
 @media (max-width: 800px) {
-  .product-grid {
+  .featured-products__grid {
     display: flex;
     grid-template-columns: none;
     overflow-x: auto;
@@ -120,27 +108,23 @@
     gap: 16px;
     padding: 16px 20px;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
-    /* Mantener animación de zoom en móvil */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     opacity: 0;
     transform: scale(0.8);
     transition: opacity 0.8s ease, transform 0.8s ease;
   }
 
-  /* Estado animado en móvil */
-  .product-grid.animate-in {
+  .featured-products__grid--animated {
     opacity: 1;
     transform: scale(1);
   }
 
-  /* Ocultar scrollbar en Webkit */
-  .product-grid::-webkit-scrollbar {
+  .featured-products__grid::-webkit-scrollbar {
     display: none;
   }
 
-  /* Cada producto tiene un ancho fijo en el slider */
-  .product-item {
+  .featured-products__item {
     flex: 0 0 280px;
     min-width: 280px;
     opacity: 1 !important;
@@ -148,38 +132,36 @@
     display: block !important;
   }
 
-  /* La card "Ver todos" siempre visible en móvil al final */
-  .view-all-item {
+  .featured-products__view-all-item {
     display: block !important;
     opacity: 1 !important;
     transform: translateY(0) !important;
   }
 
-  /* Ocultar botón "Ver más" en vista móvil */
-  .show-more-container {
+  .featured-products__show-more-container {
     display: none;
   }
 }
 
 @media (max-width: 600px) {
-  .product-item {
+  .featured-products__item {
     flex: 0 0 240px;
     min-width: 240px;
   }
 
-  .product-grid {
-    padding: 16px 16px;
+  .featured-products__grid {
+    padding: 16px 20px;
     gap: 12px;
   }
 }
 
 @media (max-width: 400px) {
-  .product-item {
+  .featured-products__item {
     flex: 0 0 200px;
     min-width: 200px;
   }
 
-  .product-grid {
+  .featured-products__grid {
     padding: 16px 12px;
     gap: 8px;
   }

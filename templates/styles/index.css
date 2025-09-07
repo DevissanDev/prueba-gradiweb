@@ -31,3 +31,8 @@ main {
 .tape-center-container {
   margin-bottom: 25px;
 }
+.footer-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

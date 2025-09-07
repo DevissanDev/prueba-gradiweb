@@ -1,4 +1,4 @@
-.topbar {
+.announcement-bar {
   /* Positioning */
   position: sticky;
   top: 0;
@@ -23,7 +23,7 @@
 }
 
 /* Topbar inner div */
-.topbar div {
+.announcement-bar div {
   /* Positioning */
   position: relative;
 
@@ -37,7 +37,7 @@
 }
 
 /* Marquee container */
-.topbar .marquee-container {
+.announcement-bar .scrolling-content {
   /* Positioning */
   position: relative;
 
@@ -53,7 +53,7 @@
 }
 
 /* Gradient overlay */
-.topbar .gradient {
+.announcement-bar .fade-overlay {
   /* Positioning */
   position: absolute;
   top: 0;
@@ -76,7 +76,7 @@
 }
 
 /* Topbar text */
-.topbar p {
+.announcement-bar p {
   /* Positioning */
   z-index: 1;
 
@@ -103,7 +103,7 @@
 }
 
 /* Icon within topbar */
-.iconstart {
+.separator-icon {
   /* Box Model */
   margin-left: 9px;
   max-height: none;
@@ -115,7 +115,7 @@
 }
 
 /* Hover state */
-.topbar:hover p {
+.announcement-bar:hover p {
   animation-play-state: paused;
 }
 

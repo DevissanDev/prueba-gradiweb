@@ -1,14 +1,14 @@
 {% comment %} 
-   Product Card Component
-    
-   Variables que recibe: 
-   - product: Objeto con los datos del producto 
-   - product.id: ID del producto 
-   - product.title: Título del producto 
-   - product.price: Precio del producto 
-   - product.tags: Array de tags del producto 
-   - product.image: Nombre de la imagen 
-   - product.description: Descripción del producto 
+     Product Card Component
+      
+     Variables que recibe: 
+     - product: Objeto con los datos del producto 
+     - product.id: ID del producto 
+     - product.title: Título del producto 
+     - product.price: Precio del producto 
+     - product.tags: Array de tags del producto 
+     - product.image: Nombre de la imagen 
+     - product.description: Descripción del producto 
 {% endcomment %}
 <link rel="stylesheet" href="{{ 'snippets/styles/product-card.css' | asset_url }}">
 <article
@@ -23,16 +23,16 @@
     <meta itemprop="keywords" content="{{ tag }}">
   {% endfor %}
   <link itemprop="availability" href="https://schema.org/InStock">
-  <div class="product-image">
-    <div class="img-container">
+  <div class="product-card__image-wrapper">
+    <div class="product-card__image-container">
       <img
         src="/assets/img/{{ product.image | default: 'shuffle_crewneck_black.avif' }}"
         alt="{{ product.title | default: 'Imagen del producto' }}"
         itemprop="image" />
     </div>
   </div>
-  <div class="info-cart-container">
-    <div class="product-info">
+  <div class="product-card__footer">
+    <div class="product-card__details">
       <h2 itemprop="name">{{ product.title | default: 'Producto Camiseta' }}</h2>
       <span
         itemprop="offers"
@@ -42,7 +42,7 @@
         <span itemprop="price" content="{{ product.price }}">{{ product.price | default: '69.98 USD' }}</span>
       </span>
     </div>
-    <div class="cart-button">
+    <div class="product-card__add-to-cart-btn">
       <div>
         <img
           src="/assets/accessories/cart.svg"
